@@ -7,9 +7,11 @@ Rayleigh scattering results from the electric polarizability of the particles. T
 
 ![scattering regime](https://wikimedia.org/api/rest_v1/media/math/render/svg/e881ee39e1776b6a1af521b8552a9d50ac4fe4d8)
 
-Here r is the characteristic length of your particles (e.g. H2, Dust, etc..) and lambda is the wavelength of light. We test analytic expressions for the Rayleigh scattering cross section against experimentally determined values. We find discrepencies between analytic derivations and experimental measurements up to 5% or more so we only report empirical fits in our results below. 
+Here r is the characteristic length of your particles (e.g. H2, Dust, etc..) and lambda is the wavelength of light. Rayleigh scattering preferentially scatters more light at bluer wavelengths than red light due to the blue side having a larger cross section (one of the reasons the sky is blue). 
 
 ## Analysis
+In this analysis, I test analytic expressions using index of refraction measurements against against experimentally determined cross section values. I find discrepencies between the analytic values and experimental measurements up to 5% or more (see plots below regarding 'refraction'). I would suggest using the experimental fit over the analytic derivation using a wavelength dependent index of refraction for future calculations. 
+
 I test two different analytic expressions to model the wavelength dependence of molecular cross-sections at visible wavelengths. I test a single order and third order approximation. Data is optimized using a simplex solver, Nelder Mead, where the chi-squared and percent error are optimized. I find the best metric to minimize regarding the fit to lab measurements is the percent error because the cross-sections span orders of magnitude the chi-squared calculation will be biased towards optimized the larger magnitude data over the smaller magnitude. Thus the best fit (via percent error minimization) is shown in red (for single order approximation) and orange (third order). 
 
 ## Results
@@ -39,12 +41,11 @@ if __name__ == "__main__":
 
 
 ## References
-- [ [1] Historic Rayleigh Scattering Measurements (Ford 1973)](http://www.sciencedirect.com/science/article/pii/S0092640X73800117?via%3Dihub)
-- http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?1962ApJ...136..690D&amp;data_type=PDF_HIGH&amp;whole_paper=YES&amp;type=PRINTER&amp;filetype=.pdf
-- [2] http://pds-atmospheres.nmsu.edu/education_and_outreach/encyclopedia/rayleigh_optical.htm
-- https://refractiveindex.info/?shelf=main&book=CO2&page=Bideau-Mehu
-- https://books.google.com/books?id=FeoLkDrNY2MC&pg=PA85&lpg=PA85&dq=depolarization+factor+for+H2&source=bl&ots=5bQTMi1Pw8&sig=WUc8OM6Va9N2JShvzHc4ZCJOGWY&hl=en&sa=X&ved=0ahUKEwjc5tfT0dbTAhVDyGMKHZbCBvsQ6AEIJzAA#v=onepage&q=depolarization%20factor%20for%20H2&f=false
-- http://irina.eas.gatech.edu/ATOC5235_2003/Lec9.pdf
+- [ [1] Historic Rayleigh Scattering Measurements of H2 (Ford 1973)](http://www.sciencedirect.com/science/article/pii/S0092640X73800117?via%3Dihub)
+- [ [2] Temperature dependence on Rayleigh scattering of H2](http://adsabs.harvard.edu/abs/1962ApJ...136..690D)
+- [ [3] Rayleigh Scattering Formulation using wavelength dependent index of refraction]( http://pds-atmospheres.nmsu.edu/education_and_outreach/encyclopedia/rayleigh_optical.htm)
+- [ [4] Optical constants for molecules](https://refractiveindex.info/?shelf=main&book=CO2&page=Bideau-Mehu)
+- [ [5] Absolute Rayleigh scattering cross sections of gasses (NASA 1977) ](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19770012747.pdf)
 
 ## Reproducibility
 All work including experimental measurements are supplied in the folders marked by the molecule's notation. 
