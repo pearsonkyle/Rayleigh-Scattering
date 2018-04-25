@@ -16,6 +16,8 @@ class rayleigh(object):
         if name.upper() == 'N2':
             self.name = 'N2'
             self.args = [3.50e-12,1.22e-5,-21.83]
+        else:
+            print("Molecule: {} not supported".format(name))
 
     def cross_section(self,wave):
         # wave in A, return cm2
