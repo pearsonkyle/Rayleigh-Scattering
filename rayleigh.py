@@ -1,13 +1,11 @@
 import numpy as np
 
 def sigma_ray(x,*args):
-    # cross section of h2 (cm2), x=wavelength(A)
+    # cross sections (cm2), x=wavelength(A)
     return  np.vstack( [ args[i]/x**(4+2*i) for i in range(len(args))] ).sum(0)
 
 class rayleigh(object):
     # returns rayleigh scattering cross section from model fits to data
-    mp = 1.67262e-27 # kg
-
     def __init__(self,name):
         if name.upper() == 'H2':
             self.name = 'H2'
