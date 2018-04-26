@@ -43,8 +43,9 @@ if __name__ == "__main__":
 - [ [1] Rayleigh Scattering Measurements of H2 (Ford 1973)](http://www.sciencedirect.com/science/article/pii/S0092640X73800117?via%3Dihub)
 - [ [2] Absolute Rayleigh scattering cross sections of gasses (NASA 1977) ](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19770012747.pdf)
 - [ [3] Temperature dependence on Rayleigh scattering of H2](http://adsabs.harvard.edu/abs/1962ApJ...136..690D)
-- [ [4] Rayleigh Scattering Formulation using wavelength dependent index of refraction]( http://pds-atmospheres.nmsu.edu/education_and_outreach/encyclopedia/rayleigh_optical.htm)
-- [ [5] Optical constants for molecules](https://refractiveindex.info/?shelf=main&book=CO2&page=Bideau-Mehu)
+- [ [4] Rayleigh Scattering derivation pt1. ]( http://pds-atmospheres.nmsu.edu/education_and_outreach/encyclopedia/rayleigh_optical.htm)
+- [ [5] Rayleigh scattering derivation using wavelength dependent index of refraction ](https://books.google.com/books?id=FeoLkDrNY2MC&pg=PA85&lpg=PA85&dq=depolarization+factor+for+H2&source=bl&ots=5bQTMi1Pw8&sig=WUc8OM6Va9N2JShvzHc4ZCJOGWY&hl=en&sa=X&ved=0ahUKEwjc5tfT0dbTAhVDyGMKHZbCBvsQ6AEIJzAA#v=onepage&q=depolarization%20factor%20for%20H2&f=false)
+- [ [6] Optical constants for molecules](https://refractiveindex.info/?shelf=main&book=CO2&page=Bideau-Mehu)
 
 ## Reproducibility
 All work including experimental measurements are supplied in the folders marked by the molecule's notation. 
