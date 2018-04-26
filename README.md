@@ -1,5 +1,5 @@
 # Rayleigh-Scattering
-Empirical fits to Rayleigh scattering cross section measurements in historic data (~300-900 nm). 
+Empirical fits to Rayleigh scattering cross sections for H2, CO2 and N2 measurements (~300-900 nm). 
 
 
 ## Introduction 
@@ -7,15 +7,14 @@ Rayleigh scattering results from the electric polarizability of the particles. T
 
 ![scattering regime](https://wikimedia.org/api/rest_v1/media/math/render/svg/e881ee39e1776b6a1af521b8552a9d50ac4fe4d8)
 
-Here r is the characteristic length of your particles (e.g. H2, Dust, etc..) and lambda is the wavelength of light. Rayleigh scattering preferentially scatters more light at bluer wavelengths than red light due to the blue side having a larger cross section (one of the reasons the sky is blue). 
+Here r is the characteristic length of your particle (e.g. H2, dust, etc..) and lambda is the wavelength of light. Rayleigh scattering preferentially scatters more light at bluer wavelengths than red light due to the blue side having a larger cross section (one of the reasons the sky is blue). 
 
 ## Analysis
-In this analysis, I test analytic expressions using index of refraction measurements against against experimentally determined cross section values. I find discrepencies between the analytic values and experimental measurements up to 5% or more (see plots below regarding 'refraction'). I would suggest using the experimental fit over the analytic derivation using a wavelength dependent index of refraction for future calculations. 
+In this analysis, I compare an analytic derivation for the Rayleigh scattering cross section using index of refraction measurements with experimental cross section measurements. A power law of first and third order are used to model the experimental cross section measurements and then are compared to the analytic expression. The power law uses a wavelength to the negative fourth power based on the analytic derivation of the cross section however the coefficients are optimized from the fitting routine. I use a simplex method, Nelder-Mead, to optimize the parameters in the power law. In each fit to the experimental data, the sum of the absolute value of the percent error is minimized. I use the percent error as opposed to a more traditional metric like the chi-squared because the data spans orders of magnitude. In my experimentation, I found that minimizing the chi-squared would only give me a good fit where the data had a large value (e.g. the bluer wavelengths) and it would not fit the red side as well since it was 2 orders of magnitude smaller. The percent error is less susceptible to this variation since the metric is normalized by the data value thus removing the magnitude (or more) variation. The best fit (via percent error minimization) is shown in red (for single order approximation) and orange (third order). I find discrepencies between the analytic derivation and experimental measurements up to 5% or more. I would suggest using the empirical fit over the analytic derivation in future calculations. One could also use an interpolation between the experimental data however you would be constrained to the wavelength region of the measurements and extrapolating beyond this region can lead to large uncertainties when using a linear or quadratic method. My empirical fit allows you to extrapolate beyond this region following an equation with the same wavelength dependence as the analytic derivation.   
 
-I test two different analytic expressions to model the wavelength dependence of molecular cross-sections at visible wavelengths. I test a single order and third order approximation. Data is optimized using a simplex solver, Nelder Mead, where the chi-squared and percent error are optimized. I find the best metric to minimize regarding the fit to lab measurements is the percent error because the cross-sections span orders of magnitude the chi-squared calculation will be biased towards optimized the larger magnitude data over the smaller magnitude. Thus the best fit (via percent error minimization) is shown in red (for single order approximation) and orange (third order). 
 
 ## Results
-ENTER DESCRIPTION HERE
+The values in the legend correspond to the sum of the absolute value of the y-axis. (e.g. sum of |% percent error|) 
 ![Cross Section for H2](https://github.com/pearsonkyle/Rayleigh-Scattering/blob/master/Figures/h2.png) 
 ![Cross Section for CO2](https://github.com/pearsonkyle/Rayleigh-Scattering/blob/master/Figures/co2.png)
 ![Cross Section for N2](https://github.com/pearsonkyle/Rayleigh-Scattering/blob/master/Figures/n2.png)
@@ -32,7 +31,7 @@ from rayleigh import rayleigh
 
 if __name__ == "__main__":
     molecules = [ rayleigh('H2'), rayleigh('CO2'), rayleigh('N2') ]
-    waves = np.linspace(3000,5000,100)
+    waves = np.linspace(3000,5000,100) # angstrom
 
     for i in molecules:
         print("{} {:.3e} cm2".format( i.name, i.cross_section(waves)[0] ))
@@ -41,11 +40,18 @@ if __name__ == "__main__":
 
 
 ## References
-- [ [1] Historic Rayleigh Scattering Measurements of H2 (Ford 1973)](http://www.sciencedirect.com/science/article/pii/S0092640X73800117?via%3Dihub)
-- [ [2] Temperature dependence on Rayleigh scattering of H2](http://adsabs.harvard.edu/abs/1962ApJ...136..690D)
-- [ [3] Rayleigh Scattering Formulation using wavelength dependent index of refraction]( http://pds-atmospheres.nmsu.edu/education_and_outreach/encyclopedia/rayleigh_optical.htm)
-- [ [4] Optical constants for molecules](https://refractiveindex.info/?shelf=main&book=CO2&page=Bideau-Mehu)
-- [ [5] Absolute Rayleigh scattering cross sections of gasses (NASA 1977) ](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19770012747.pdf)
+- [ [1] Rayleigh Scattering Measurements of H2 (Ford 1973)](http://www.sciencedirect.com/science/article/pii/S0092640X73800117?via%3Dihub)
+- [ [2] Absolute Rayleigh scattering cross sections of gasses (NASA 1977) ](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19770012747.pdf)
+- [ [3] Temperature dependence on Rayleigh scattering of H2](http://adsabs.harvard.edu/abs/1962ApJ...136..690D)
+- [ [4] Rayleigh Scattering Formulation using wavelength dependent index of refraction]( http://pds-atmospheres.nmsu.edu/education_and_outreach/encyclopedia/rayleigh_optical.htm)
+- [ [5] Optical constants for molecules](https://refractiveindex.info/?shelf=main&book=CO2&page=Bideau-Mehu)
 
 ## Reproducibility
 All work including experimental measurements are supplied in the folders marked by the molecule's notation. 
+
+## Use cases
+1. Radiative transfer calculation in (Pearson et al. in prep.) 
+
+## TO DO
+Add temperature dependence? 
+
