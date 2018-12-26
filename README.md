@@ -50,9 +50,28 @@ if __name__ == "__main__":
 ## Reproducibility
 All work including experimental measurements are supplied in the folders marked by the molecule's notation. 
 
-## Use cases
-1. Radiative transfer calculation in (Pearson et al. in prep.) 
+## Citing this repository
+Please cite the following article if you make use of this code and smash that star button
 
-## TO DO
-Add temperature dependence? 
+[Ground-based Spectroscopy of the Exoplanet XO-2b using a Systematic Wavelength Calibartion](https://arxiv.org/abs/1811.02060)
 
+Here is an example bibtex (as of 12/21/2018)
+```
+@ARTICLE{Pearson2018,
+       author = {{Pearson}, Kyle A. and {Griffith}, Caitlin A. and {Zellem}, Robert T.
+        and {Koskinen}, Tommi T. and {Roudier}, Gael M.},
+        title = "{Ground-based Spectroscopy of the Exoplanet XO-2b using a Systematic
+        Wavelength Calibration}",
+      journal = {arXiv e-prints},
+     keywords = {Astrophysics - Earth and Planetary Astrophysics},
+         year = 2018,
+        month = Nov,
+          eid = {arXiv:1811.02060},
+        pages = {arXiv:1811.02060},
+archivePrefix = {arXiv},
+       eprint = {1811.02060},
+ primaryClass = {astro-ph.EP},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2018arXiv181102060P},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
